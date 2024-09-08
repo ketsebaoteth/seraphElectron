@@ -10,6 +10,7 @@ import { IconDots } from '@tabler/icons-vue';
 import { defineProps } from 'vue';
 import { Project } from './structure/seraphProject';
 import Button from './ui/button/Button.vue';
+import { windowstatus } from './windowstate';
 
 const props = defineProps({
     projectref: {
@@ -18,10 +19,16 @@ const props = defineProps({
     }
 })
 
+function setActiveProject(){
+    windowstatus.value.activeProject = props.projectref;
+    windowstatus.value.recentProjectsPage = false;
+    windowstatus.value.projectDetailsPage = true;
+}
+
 </script>
 
 <template>
-    <div class="w-[250px] max-h-52 rounded-lg hover:bg-[#27272742] cursor-pointer bg-background border border-border p-2">
+    <div @click="setActiveProject" class="w-[250px] max-h-52 rounded-lg hover:bg-[#27272742] cursor-pointer bg-background border border-border p-2">
         <div class="w-full h-[150px] flex place-items-center justify-center">
             <h1 class="font-bold text-lg">Json</h1>
         </div>
@@ -32,7 +39,7 @@ const props = defineProps({
             </div>
             
             <DropdownMenu>
-                <DropdownMenuTrigger as-child>
+                <DropdownMenuTrigger as-child v-on:click.stop>
                     <Button class=" ml-auto" variant="outline" size="icon">
                         <IconDots stroke={2} class="w-5 h-5"/>
                     </Button>

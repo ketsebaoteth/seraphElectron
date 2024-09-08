@@ -4,7 +4,7 @@ export const projectsList = ref([])
 
 export class Project {
     constructor(
-        id,
+        id = `${Date.now()}-${Math.floor(Math.random() * 10000)}`,
         name = "untitled",
         description = "no description has been provided",
         dateCreated = new Date(),

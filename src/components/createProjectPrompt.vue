@@ -26,7 +26,7 @@ function createProject(){
 
 <template>
     <div v-if="windowstatus.createProjectPage" class="z-10 absolute w-screen h-screen bg-[#00000054] flex place-items-center justify-center">
-        <div class="prompt flex flex-col p-5 w-[60%] h-[70%] gap-2">
+        <div class="prompt flex flex-col p-5 w-[60%] h-[80%] gap-2 bg-[#181818] rounded-lg">
             <h1 class="text-lg">Create project</h1>
             <h2>Project Title</h2>
             <Input v-model="name"></Input>
