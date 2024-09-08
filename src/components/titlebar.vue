@@ -16,7 +16,7 @@ function close(){
 
 <template>
     <div class="titlebar w-screen h-[50px] bg-transparent flex place-items-center pl-5 [&>Button]:w-12 [&>Button]:rounded-none">
-        <h1 class=" text-sm">Seraph Editor</h1>
+        <h1 class=" text-sm">Seraph Editor Biki</h1>
         <Button variant="ghost" class="ml-auto" size="icon">
             <IconArrowsDiagonalMinimize2  stroke={2} class="w-5 h-5" @click="minimize"/>
         </Button>
