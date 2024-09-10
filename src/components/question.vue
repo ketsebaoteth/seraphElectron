@@ -1,16 +1,18 @@
 <script setup>
 import {
-    IconExclamationMark,
-    IconGraph,
-    IconPhotoScan,
-    IconPlus,
-    IconQuestionMark,
+  IconExclamationMark,
+  IconGraph,
+  IconPhotoScan,
+  IconPlus,
+  IconQuestionMark,
 } from "@tabler/icons-vue";
+import { ref } from "vue";
 import richtexteditor from "./richtexteditor.vue";
 import Button from "./ui/button/Button.vue";
 import Checkbox from "./ui/checkbox/Checkbox.vue";
 import Input from "./ui/input/Input.vue";
 
+const tab_context = ref("question");
 const editorOptions = {
   theme: "snow",
 };
