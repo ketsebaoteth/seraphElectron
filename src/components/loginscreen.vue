@@ -1,9 +1,9 @@
 <script setup>
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { IconEye } from '@tabler/icons-vue';
+import { IconEye,IconArrowBackUp } from '@tabler/icons-vue';
 import { toast } from 'vue-sonner';
-import { windowstatus } from "./windowstate";
+import { disableAllWindows, windowstatus } from "./windowstate";
 
 function copy_telegram_username(){
     navigator.clipboard.writeText("@khub880");
@@ -23,11 +23,18 @@ function login(){
     windowstatus.value.registerscreen = false;
     windowstatus.value.logginscreen = true;
 }
+function backToRecents(){
+    disableAllWindows();
+    windowstatus.value.recentProjectsPage = true;
+}
 </script>
 
 <template>
-    <div v-if="windowstatus.accountPage" class="w-screen bg-transparent flex place-items-center justify-center px-5" style="height: calc(100vh - 50px);">
-        <div class="form-cont border-border border w-[550px] h-[80%] bg-[#16161654] rounded-lg backdrop-blur-lg flex flex-col place-items-center p-5 px-12">
+    <div v-if="windowstatus.accountPage" class="w-screen bg-transparent flex place-items-center justify-center px-2" style="height: calc(100vh - 50px);">
+        <div class="form-cont border-border border w-[550px] h-[80%] bg-[#16161654] rounded-lg backdrop-blur-lg flex flex-col place-items-center p-5 px-8">
+            <Button variant="outline" size="icon" class="mr-auto" @click="backToRecents">
+                <IconArrowBackUp stroke="{2}" class="w-5 h-5" />
+            </Button>
             <h1 class="text-[40px] font-bold" v-if="windowstatus.logginscreen">Login</h1>
             <h1 class="text-[40px] font-bold" v-if="windowstatus.registerscreen">Register</h1>
             <h2 class="text-sm text-gray-500 w-60 text-center">login to your account to get started with seraph editor</h2>

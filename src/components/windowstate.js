@@ -11,3 +11,9 @@ export const windowstatus = ref({
     questionEditingPage: false,
 
 });
+
+export const disableAllWindows=()=>{
+    for (const key in windowstatus.value) {
+        windowstatus.value[key] = false;
+    }
+}
