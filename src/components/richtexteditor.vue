@@ -50,7 +50,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full h-60 border border-border max-w-full rounded">
+  <div class="w-full h-32 border border-border max-w-full rounded">
     <div
       class="richnav w-full h-7 flex [&>Button>*]:w-4 [&>Button>*]:h-4 gap-1 place-items-center px-1 border-b border-border"
     >

@@ -11,6 +11,7 @@ import { IconArrowBackUp } from "@tabler/icons-vue";
 import question from "./question.vue";
 import Button from "./ui/button/Button.vue";
 import { disableAllWindows, windowstatus } from "./windowstate";
+import answer from "./answer.vue";
 
 function backToRecents() {
   disableAllWindows();
@@ -47,7 +48,13 @@ function backToRecents() {
     </div>
     <div class="flex-grow h-full flex justify-center flex-col py-5">
       <ScrollArea class="flex flex-col gap-2">
-        <question v-for="q in windowstatus.activeProject.questionCount" :key="q" />
+        <question
+          v-for="(q, qindex) in windowstatus.activeProject.questions"
+          :key="qindex"
+          :qindex="qindex"
+        >
+          <answer v-for="(a, aindex) in q.answers" :key="aindex" :aindex="aindex" v-model:modelvalue="a.answerDesc"/>
+        </question>
       </ScrollArea>
     </div>
   </div>
